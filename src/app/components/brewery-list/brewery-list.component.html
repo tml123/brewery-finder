@@ -1,0 +1,12 @@
+<div class="input-field col s6">
+  <input id="state" type="text" (keyup.enter)="searchByState($event.target.value)">
+  <label for="state">Find A Brewery</label>
+</div>
+<ul>
+  <app-brewery-list-item *ngFor="let brewery of breweries$ | async"
+  [brewery]="brewery"
+  (toggleSave)="onToggleSave($event)"
+  [favorited]="brewery.favorited">
+  </app-brewery-list-item>
+</ul>
+
